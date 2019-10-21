@@ -11,8 +11,8 @@ window.addEventListener("load", function() {
          event.preventDefault();
       }
 
-      if (typeof(pilotName.value) === "number"){
-         alert("not a string")
+      if(!isNaN(pilotName.value) || !isNaN(copilotName.value)){
+         alert("Invalid Input")
       }
    })
 });
