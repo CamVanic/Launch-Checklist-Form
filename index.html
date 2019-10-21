@@ -5,13 +5,28 @@
         <link rel = "stylesheet" type = "text/css" href = "styles.css" />
         <script src = "script.js"></script>
     </head>
+    <script>
+        window.addEventListener("load", function(){
+            let form = document.querySelector("form");
+            form.addEventListener("formSubmit", function(event){
+                let pilotName = document.querySelector("input[name=pilotName");
+                let copilotName = document.querySelector("input[name=copilotName");
+                let fuelLevel = document.querySelector("input[name=fuelLevel");
+                let cargoMass = document.querySelector("input[name=cargoMass");
+                if(pilotName === "" || copilotName === "" || fuelLevel === "" || cargoMass === ""){
+                    alert ("All Fields Required!")
+                    event.preventDefault()
+                }
+            })
+        })
+    </script>
     <body>
         <h1>Launch Checklist Form</h1>
         <div id="missionTarget">
             <!-- Fetch some planetary data -->
         </div> 
         <div id="launchForm">
-            <form>
+            <form id="form">
                 <div style="display:flex; flex-direction: row; justify-content: center; align-items: center; margin: 8 0;">
                     <label>Pilot Name <input type="text" name="pilotName" id="pilotName"/></label>
                 </div>
@@ -37,6 +52,6 @@
                     <li id="cargoStatus">Cargo mass low enough for launch</li>
                 </ol>
             </div>
-        </div>    
+        </div>  
     </body>
 </html>
