@@ -9,6 +9,8 @@ window.addEventListener("load", function() {
    let launchStatus = document.getElementById("launchStatus")
    let fuelStatus= document.getElementById("fuelStatus")
    let cargoStatus= document.getElementById("cargoStatus")
+   let pilotStatus= document.getElementById("pilotStatus")
+   let copilotStatus= document.getElementById("copilotStatus")
 
    form.addEventListener("submit", function(event){
       if (pilotName.value === '' || copilotName.value === '' || cargoMass.value === "" || fuelLevel.value === ""){
@@ -31,6 +33,9 @@ window.addEventListener("load", function() {
          fuelStatus.innerHTML = "Fuel Level too Low"
          event.preventDefault();
       }
+
+      pilotStatus.innerHTML = `${pilotName.value} Ready`
+      copilotStatus.innerHTML = `${copilotName.value} Ready`
    })
 });
 
