@@ -44,12 +44,12 @@ window.addEventListener("load", function() {
    form.addEventListener("submit", function(event){
       
       if (pilotName.value === ''){
-         pilotStatus.innerHTML = `Pilot NOT is Ready for Launch`
+         pilotStatus.innerHTML = `Pilot is NOT Ready for Launch`
          alert("All Fields Required!")
          event.preventDefault();
       } else if(!/^[A-Za-z]+$/.test(pilotName.value)){
-         pilotStatus.innerHTML = `Pilot NOT is Ready for Launch`
-         copilotStatus.innerHTML = `Copilot NOT is Ready for Launch`
+         faultyItems.style.visibility = "visible";
+         pilotStatus.innerHTML = `Pilot is NOT Ready for Launch`
          alert("Invalid Input")
          event.preventDefault();
       } else{
@@ -58,11 +58,12 @@ window.addEventListener("load", function() {
       }
 
       if(copilotName.value === ''){
-         copilotStatus.innerHTML = `Copilot NOT is Ready for Launch`
+         copilotStatus.innerHTML = `Copilot is NOT Ready for Launch`
          alert("All Fields Required!")
          event.preventDefault();
       }else if(!/^[A-Za-z]+$/.test(copilotName.value)){
-         copilotStatus.innerHTML = `Copilot NOT is Ready for Launch`
+         faultyItems.style.visibility = "visible";
+         copilotStatus.innerHTML = `Copilot is NOT Ready for Launch`
          alert("Invalid Input")
          event.preventDefault();         
       }else{
