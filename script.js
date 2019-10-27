@@ -85,7 +85,13 @@ window.addEventListener("load", function() {
          launchStatus.innerHTML = "Shuttle Not Ready for Launch"
          fuelStatus.innerHTML = "Fuel Level too Low"
          event.preventDefault();
-      }     
+      }
+      
+      if (/^[A-Za-z]+$/.test(pilotName.value) && /^[A-Za-z]+$/.test(copilotName.value) && cargoMass.value <= 10000 && fuelLevel.value >= 10000){
+         launchStatus.innerHTML = "Shuttle is Ready for Launch"
+         launchStatus.style.color = "green"
+         event.preventDefault()
+      }
    })
 });
 
