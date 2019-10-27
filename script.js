@@ -42,15 +42,37 @@ window.addEventListener("load", function() {
    let copilotStatus= document.getElementById("copilotStatus")
 
    form.addEventListener("submit", function(event){
-      if (pilotName.value === '' || copilotName.value === '' || cargoMass.value === "" || fuelLevel.value === ""){
+      
+      if (pilotName.value === ''){
+         pilotStatus.innerHTML = `Pilot NOT is Ready for Launch`
          alert("All Fields Required!")
          event.preventDefault();
-      } else if(!/^[A-Za-z]+$/.test(pilotName.value) || !/^[A-Za-z]+$/.test(copilotName.value)){
+      } else if(!/^[A-Za-z]+$/.test(pilotName.value)){
+         pilotStatus.innerHTML = `Pilot NOT is Ready for Launch`
+         copilotStatus.innerHTML = `Copilot NOT is Ready for Launch`
          alert("Invalid Input")
          event.preventDefault();
+      } else{
+         pilotStatus.innerHTML = `Pilot ${pilotName.value} is Ready for Launch`
+         
       }
 
-      if(cargoMass.value > 10000){
+      if(copilotName.value === ''){
+         copilotStatus.innerHTML = `Copilot NOT is Ready for Launch`
+         alert("All Fields Required!")
+         event.preventDefault();
+      }else if(!/^[A-Za-z]+$/.test(copilotName.value)){
+         copilotStatus.innerHTML = `Copilot NOT is Ready for Launch`
+         alert("Invalid Input")
+         event.preventDefault();         
+      }else{
+         copilotStatus.innerHTML = `Copilot ${copilotName.value} is Ready for Launch`
+      }
+
+      if (cargoMass.value === "" || fuelLevel.value === ""){
+         alert("All Fields Required!")
+         event.preventDefault();
+      }else if(cargoMass.value > 10000){
          faultyItems.style.visibility = "visible";
          launchStatus.style.color = "red"
          launchStatus.innerHTML = "Shuttle Not Ready for Launch"
@@ -62,10 +84,7 @@ window.addEventListener("load", function() {
          launchStatus.innerHTML = "Shuttle Not Ready for Launch"
          fuelStatus.innerHTML = "Fuel Level too Low"
          event.preventDefault();
-      }
-
-      pilotStatus.innerHTML = `Pilot ${pilotName.value} is Ready for Launch`
-      copilotStatus.innerHTML = `Copilot ${copilotName.value} is Ready for Launch`
+      }     
    })
 });
 
